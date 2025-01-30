@@ -16,7 +16,7 @@ export const loginUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/login",
+        "https://movie-application-klza.onrender.com/api/login",
         credentials
       );
       const { token, data } = response.data;
@@ -34,7 +34,7 @@ export const registerUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/register",
+        "https://movie-application-klza.onrender.com/api/register",
         userData
       );
 
@@ -48,7 +48,7 @@ export const registerUser = createAsyncThunk(
 // Async thunk for user-details
 export const userdetails = createAsyncThunk("auth/user", async (thunkAPI) => {
   try {
-    const response = await axios.get("http://localhost:8080/api/user-details", {
+    const response = await axios.get("https://movie-application-klza.onrender.com/api/user-details", {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
@@ -63,7 +63,7 @@ export const userdetails = createAsyncThunk("auth/user", async (thunkAPI) => {
 
 export const userlogout = createAsyncThunk("auth/logout", async (thunkAPI) => {
   try {
-    const response = await axios.get("http://localhost:8080/api/logout");
+    const response = await axios.get("https://movie-application-klza.onrender.com/api/logout");
     const data = response.data;
     localStorage.removeItem("token");
     return data;

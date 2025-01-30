@@ -6,7 +6,7 @@ export const addMovie = createAsyncThunk(
   async (newMovie,thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/movies",
+        "https://movie-application-klza.onrender.com/api/movies",
         newMovie,
         {
           headers: {
@@ -27,7 +27,7 @@ export const editMovie = createAsyncThunk(
   async (updatedMovie, thunkAPI) => {
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/movies/${updatedMovie.id}`,
+        `https://movie-application-klza.onrender.com/api/movies/${updatedMovie.id}`,
         updatedMovie,
         {
           headers: {
@@ -50,7 +50,7 @@ export const deleteMovie = createAsyncThunk(
     console.log(id);
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/movies/${id}`,
+        `https://movie-application-klza.onrender.com/api/movies/${id}`,
         {
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
@@ -72,26 +72,26 @@ export const fetchMovies = createAsyncThunk(
   async (obj, thunkAPI) => {
     let apiurl;
     if (obj == undefined) {
-      apiurl = `http://localhost:8080/api/movies`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies`;
     } else if (
       obj.sortby == null &&
       obj.orderbt == null &&
       obj.search == undefined
     ) {
-      apiurl = `http://localhost:8080/api/movies?&page=${obj.page}`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies?&page=${obj.page}`;
     } else if (
       obj.sortby !== null &&
       obj.orderbt !== null &&
       obj.search !== "" &&
       obj.search !== undefined
     ) {
-      apiurl = `http://localhost:8080/api/movies?search=${obj.search}&page=${obj.page}&sortBy=${obj.sortby}&order=${obj.orderbt}`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies?search=${obj.search}&page=${obj.page}&sortBy=${obj.sortby}&order=${obj.orderbt}`;
     } else if (obj.sortby !== null && obj.orderbt !== null) {
-      apiurl = `http://localhost:8080/api/movies?page=${obj.page}&sortBy=${obj.sortby}&order=${obj.orderbt}`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies?page=${obj.page}&sortBy=${obj.sortby}&order=${obj.orderbt}`;
     } else if (obj.search !== undefined) {
-      apiurl = `http://localhost:8080/api/movies?search=${obj.search}&page=${obj.page}`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies?search=${obj.search}&page=${obj.page}`;
     } else {
-      apiurl = `http://localhost:8080/api/movies`;
+      apiurl = `https://movie-application-klza.onrender.com/api/movies`;
     }
     try {
       const response = await axios.get(apiurl);

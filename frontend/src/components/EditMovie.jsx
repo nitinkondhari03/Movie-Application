@@ -31,7 +31,7 @@ const EditMovie = () => {
   const handledataid = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/movies/${id}`
+        `https://movie-application-klza.onrender.com/api/movies/${id}`
       );
      
       setname(response.data.data.name);
