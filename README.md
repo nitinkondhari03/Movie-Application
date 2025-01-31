@@ -2,6 +2,10 @@
 
 A Mern stack movie application built with React.js, Material UI, Redux Toolkit, Node.js, Express.js, and MongoDB, featuring search, sorting, pagination, and an admin panel for adding, deleting, and editing movies.
 
+## Admin Login
+**Email: admin@gmail.com
+**Password: admin@123
+
 ## Tech Stack
 
 **Front-end:** React.js, Material UI, Redux Toolkit
