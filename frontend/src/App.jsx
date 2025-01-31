@@ -12,14 +12,16 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userdetails } from "./redux/Slice/authSlice";
 import { useEffect } from "react";
+import LoadingPage from "./components/LoadingPage";
 function App() {
   const dispatch = useDispatch();
+    const { user,loading } = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(userdetails());
   }, []);
   return (
     <>
-     
+     {loading ? <LoadingPage/>:
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -57,7 +59,7 @@ function App() {
         />
 
         <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      </Routes>}
     </>
   );
 }

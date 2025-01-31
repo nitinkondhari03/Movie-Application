@@ -35,11 +35,11 @@ const AdminMovie = () => {
   const [sortval, setsortval] = useState("asc");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const { movies, totalPages, currentPage, status, error } = useSelector(
+  const { movies, totalPages, currentPage, status} = useSelector(
     (state) => state.movies
   );
   const { user, role } = useSelector((state) => state.auth);
-
+  const categoryLoading = new Array(13).fill(null)
   // Total number of pages
   const handlechangpage = (event, value) => {
     event.preventDefault();
@@ -87,8 +87,9 @@ const AdminMovie = () => {
   };
 
   //Search
-  const handleSearch = (e) => {
+ const handleSearch = (e) => {
     e.preventDefault();
+    console.log(sortcate)
     if (sortcate !== "") {
       let obj = {
         search: query,
@@ -101,6 +102,8 @@ const AdminMovie = () => {
       let obj = {
         search: query,
         page: 1,
+        sortby: null,
+        orderbt: null,
       };
       dispatch(fetchMovies(obj));
     }
@@ -285,8 +288,42 @@ const AdminMovie = () => {
               <MenuItem value={"desc"}>desc</MenuItem>
             </Select>
           </FormControl>
-        </Box>
-        <Box
+        </Box>{status=="loading"?<Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 2,
+                    justifyContent: "center",
+                    padding: 2,
+                  }}
+                >
+                  {categoryLoading.map((movie, index) => (
+                      <Card
+                        key={index}
+                        sx={{
+                          width: 300,
+                          display: "flex",
+                          flexDirection: "column",
+                          boxShadow: 3,
+                          borderRadius: 2,
+                        }}
+                      >
+                        {/* Image Section */}
+                        <CardMedia
+                          
+                          sx={{
+                            width: { xs: "100%", sm: "100%" },
+                            height: { xs: 300, sm: 400 },
+                            animation:"pulse 2s infinite"
+                          }}
+                         
+                        />
+        
+                        
+                      </Card>
+                    ))}
+                </Box>
+        :<Box
           sx={{
             display: "flex",
             flexWrap: "wrap",
@@ -390,7 +427,7 @@ const AdminMovie = () => {
                 </Box>
               </Card>
             ))}
-        </Box>
+        </Box>}
         <Box style={{ display: "flex", justifyContent: "center" }}>
           {" "}
           <Pagination
