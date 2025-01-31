@@ -1,6 +1,6 @@
-# ElectroShop
+# Movie Application
 
-A full-stack movie application built with React.js, Material UI, Redux Toolkit, Node.js, Express.js, and MongoDB, featuring search, sorting, pagination, and an admin panel for adding, deleting, and editing movies.
+A Mern stack movie application built with React.js, Material UI, Redux Toolkit, Node.js, Express.js, and MongoDB, featuring search, sorting, pagination, and an admin panel for adding, deleting, and editing movies.
 
 ## Tech Stack
 
@@ -45,7 +45,7 @@ https://vercel.com
 ![Image](https://github.com/user-attachments/assets/677a4808-6afe-417f-b8dd-b08eabd21daf)
 
 ### 4. Admin Home Page
-![Image](https://github.com/user-attachments/assets/16bb45ab-2bca-43e3-bb0b-2c968d2fca74)
+![Image](https://github.com/user-attachments/assets/dda98b8f-8e94-4f92-86c2-82a5381e4593)
 
 ### 5. Admin Create Movie Page
 ![Image](https://github.com/user-attachments/assets/13adbe1d-a24d-4dbe-b980-ff6a384a67a6)
